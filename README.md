@@ -12,6 +12,5 @@
 
 
  ## 2-Put the name of the database in the Connection 
-![Screenshot 2023-06-24 070435](https://github.com/mody19765/Full-Stack-Project--CRUD-Operations/assets/73292867/3e6af62a-c7c8-4acc-8f13-07f9618c0c31)
-
+![Screenshot 2023-06-24 070435](https://github.com/mody19765/Full-Stack-Project--CRUD-Operations/assets/73292867/1bec596e-c59a-4a6e-a4c8-c22248c3e54f)
 
