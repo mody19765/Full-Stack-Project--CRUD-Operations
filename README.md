@@ -1,11 +1,6 @@
 # NodeJs-ExpressJs-CRUD 	:octocat:
-```
-Product Management System :octocat:
 
-```
-
-
-# install
+# install 
 ```
  npm init -y
  npm i express mysql2
