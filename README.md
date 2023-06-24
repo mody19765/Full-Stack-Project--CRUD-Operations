@@ -7,7 +7,7 @@
 ```
 # Usage
 
-## 1-Creat Database
+## 1-Create a Database
 ![Screenshot 2023-06-24 065700](https://github.com/mody19765/Full-Stack-Project--CRUD-Operations/assets/73292867/b0abefd1-8db0-4d15-8a1f-408bd4cf7379)
 
  ## 2-put the name of the database in the Connection 
