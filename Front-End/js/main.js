@@ -11,11 +11,13 @@ function inputdata(){
        sendData("AddProduct","POST",data)
        displayProducts()
 }
+var headers = {}
 
 
 let productsn = []
 function getDatafromApi() {
-    fetch('http://localhost:3000/display')
+    fetch('http://localhost:3000/display', {method:"GET",mode: 'cors', headers: headers}
+    )
         .then(response => response.json())
         .then(json => {
             productsn = json.Products
@@ -23,25 +25,36 @@ function getDatafromApi() {
             console.log(productsn)
         }
         )
+       
 }
 getDatafromApi() 
     /*displayProducts*/
-
+let pr=[]
+var s ,i2,id2,j
 function displayProducts() {
     var cartoona = ``;
+
     for (var i = 0; i < productsn.length; i++) {
         cartoona += `<tr>
         <td>${i}</td>
         <td>${productsn[i].ProductName}</td>
         <td>${productsn[i].ProductPrice}</td>
         <td>${productsn[i].ProductDescription}</td>
-        <td> <button  onclick="Updatedata(${i},${productsn[i].id}); " class="btn btn-outline-warning">update</button> </td>
-        <td> <button  onclick="deleteproducts(${productsn[i].id}); " class="btn btn-outline-danger">delete</button> </td>
+        <td> 
+        
+        <button 
+        onclick= "Updatedata(${i}); " class="btn btn-outline-warning">update</button> 
+        </td>
+        <td> 
+        <button 
+        onclick="deleteproducts(${i}); " class="btn btn-outline-danger">delete</button> 
+        </td>
     </tr>`
     }
     document.getElementById('tableBody').innerHTML = cartoona;
 }
 
+  
 
 function sendData(endpoint, method, data) {
     fetch(`http://localhost:3000/${endpoint}`, {
@@ -61,27 +74,42 @@ function sendData(endpoint, method, data) {
         });
 }
 
-function deleteproducts(id){
-    sendData("delete","DELETE",{id})
-}
 let Productid
-function Updatedata(index,id){
-    Productid=id
+function Updatedata(d){
+    
+   var index=d
+
+  var _id=productsn[index]._id
+    Productid=_id+""
     ProductName.value=productsn[index].ProductName
     ProductPrice.value=productsn[index].ProductPrice
     ProductDescription.value=productsn[index].ProductDescription
     document.getElementById("update").style.display ="block"
     document.getElementById("add").style.display='none'
 }
+function deleteproducts(id){
+
+    
+   var index=id
+
+  var id5=productsn[index]._id
+  _id=id5+""  
+      sendData("delete","DELETE",{_id})
+}
 function sendND()
 {
     let data = {
-        id:Productid,
+        _id:Productid,
         ProductName: ProductName.value,
         ProductPrice: ProductPrice.value,
         ProductDescription: ProductDescription.value
     }
     sendData("update","PUT",data)
-}
+    ProductName.value=""
+    ProductDescription.value=""
+    ProductPrice.value=""
+    document.getElementById("add").style.display='block'
+    document.getElementById("update").style.display ="none"
 
+}
 
