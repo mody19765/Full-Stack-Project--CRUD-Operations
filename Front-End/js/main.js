@@ -16,7 +16,7 @@ var headers = {}
 
 let productsn = []
 function getDatafromApi() {
-    fetch('https://full-stack-project-crud-operations-majw.vercel.app/display', {method:"GET",mode: 'cors', headers: headers}
+    fetch('https://full-stack-project-crud-operations.vercel.app/display', {method:"GET",mode: 'cors', headers: headers}
     )
         .then(response => response.json())
         .then(json => {
@@ -57,7 +57,7 @@ function displayProducts() {
   
 
 function sendData(endpoint, method, data) {
-    fetch(`https://full-stack-project-crud-operations-majw.vercel.app/${endpoint}`, {
+    fetch(`https://full-stack-project-crud-operations.vercel.app/${endpoint}`, {
         method: method,
         body: JSON.stringify(data),
         headers: {
